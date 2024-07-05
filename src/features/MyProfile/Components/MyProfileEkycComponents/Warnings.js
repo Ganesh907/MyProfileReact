@@ -1,0 +1,23 @@
+export const Warnings={
+        3:"Please enter a valid email address",
+        134:"Please enter a valid password",
+        2:"Please enter a valid username",
+        130:"Please enter a valid phone number",
+        139:"Please enter a valid address",
+        129:"Please enter a valid city",
+        61:"Please enter a valid state",
+        139:"Please enter a valid zip code",
+        52:"Please enter a valid country",
+        50:"Please enter a valid credit card number",
+        50:"Please enter a valid credit card expiration date",
+        51:"Please enter a valid credit card cvv number",
+        52:"Please enter a valid credit card name on card",
+        53:"Please enter a valid credit card zip code on card",
+        54:"Please enter a valid credit card address on card",
+        55:"Please enter a valid credit card city on card",
+        56:"Please enter a valid credit card state on card",
+        57:"Please enter a valid credit card country on card",
+        58:"Please enter a valid credit card phone number on card",
+        59:"Please enter a valid credit card email on card",
+        60:"Please enter a valid credit card cardholder name on card"
+}
