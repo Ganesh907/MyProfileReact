@@ -243,6 +243,8 @@ import { useState, useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import warning from "../../../../Images/warningGif.gif";
 import FileUploadRoundedIcon from "@mui/icons-material/FileUploadRounded";
+// import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 // import { Select } from "@mui/material";
 import Select from "react-select";
 
@@ -415,13 +417,14 @@ function GST({ onClose }) {
       <div className="flex justify-between w-full sm:w-[64%] gap-4 ">
         <label className="w-1/3">PAN NO:</label>
         <img src={warning} className="h-6 w-6 mr-3" />
-        <input
+        {/* <input
           type="text"
           maxLength="10"
           className="w-[60%]  mr-2 border border-black p-2 rounded-md size-10"
           value={panNo}
           onChange={(e) => handleInputChange(e, "panNo")}
-        />
+        /> */}
+        <TextField id="standard-basic" variant="standard" className="w-[60%] " />
         {panError && <p className="text-red-500">{panError}</p>}
         <div className=" w-[30%] flex gap-2">
           <button
