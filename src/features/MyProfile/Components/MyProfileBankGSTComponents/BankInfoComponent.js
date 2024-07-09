@@ -184,11 +184,7 @@ function BankInfo({ onClose }) {
 
   return (
     <>
-      {/* <img
-        src={close}
-        className="h-4 w-4 mt-0 cursor-pointer"
-        onClick={onClose}
-      /> */}
+
       <CloseIcon onClick={onClose} />
       <div className="flex justify-between w-full sm:w-[68%] ">
         <label htmlFor="field11" className="w-[29%]  ">
@@ -200,21 +196,21 @@ function BankInfo({ onClose }) {
           onChange={handleChange}
           options={bankOptions}
           placeholder="Select bank"
-          className="h-10 w-[62%] mr-[74px] ml-4 border border-black rounded-md"
+          className="size-10 w-[64%] mr-[57px] ml-4 border border-black rounded-md"
         />
 
-        <div className=" w-40">
-          <span className="p-1  border mt-4 rounded-2xl border-gray-500 bg-sky-200">
+        <div className="flex  w-40 mr-10">
+          <span className=" p-1 border  rounded-2xl border-gray-500 bg-sky-200">
             Date: {currentDate}
           </span>
         </div>
       </div>
 
-      <div className="flex justify-between w-full sm:w-[50%] relative ">
+      <div className="flex justify-between w-full sm:w-[50%]  ">
         <label htmlFor="field22" className="">
           Bank Account Number:
         </label>
-        <img src={warning} className="absolute -top-4 h-6 w-6 ml-40" />
+        <img src={warning} className=" h-6 w-6 " />
 
         <input
           type="text"
@@ -226,34 +222,34 @@ function BankInfo({ onClose }) {
         />
       </div>
 
-      <div className="flex justify-between w-full sm:w-[50%] relative">
+      <div className="flex justify-between w-full sm:w-[50%] ">
         <label htmlFor="field33" className="w-1/3">
           Branch Name:
         </label>
-        <img src={warning} className="absolute -top-5 h-6 w-6 ml-40" />
+        <img src={warning} className=" h-6 w-6 mr-4  " />
         <input
           type="text"
           name="field33"
           value={branchName}
           onChange={handleBranchNameInputChange}
-          className="border border-black p-2 w-[70%] rounded-md"
+          className="border border-black p-2 w-[83%] rounded-md"
         />
       </div>
 
-      <div className="flex justify-between w-full sm:w-[64%] relative  ">
+      <div className="flex justify-between w-full sm:w-[64%]   ">
         <label htmlFor="field44" className=" w-1/3 ">
           IFSC:
         </label>
-        <img src={warning} className="absolute -top-5 h-6 w-6 ml-40" />
+        <img src={warning} className=" h-6 w-6 mr-4" />
         <input
           type="text"
           name="field44"
           value={ifsc}
           onChange={handleIfscInputChange}
-          className="border border-black p-2 w-[70%] rounded-md "
+          className="border border-black p-2 w-[83%] mr-4 rounded-md "
         />
         {errors.ifsc && <span style={{ color: "red" }}>{errors.ifsc}</span>}
-        <div className="">
+        <div className="w-[30%] flex gap-1">
           <button
             onClick={handleSave}
             disabled={!isFormValid()}

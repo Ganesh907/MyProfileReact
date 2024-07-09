@@ -318,5 +318,6 @@ export const EkycData = [
         57:"Please enter a valid credit card country on card",
         58:"Please enter a valid credit card phone number on card",
         59:"Please enter a valid credit card email on card",
-        60:"Please enter a valid credit card cardholder name on card"
+        60:"Please enter a valid credit card cardholder name on card",
+        
 }
