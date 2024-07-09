@@ -1,11 +1,8 @@
-
-
-
 import { useState, useEffect } from "react";
-import warning from "../../../../Images/warningGif.gif";
+import warning from "../../../../assets/images/warningGif.gif";
 import React from "react";
-import { Select } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import Select from "react-select";
+import CloseIcon from "@mui/icons-material/Close";
 
 function BankInfo({ onClose }) {
   const [currentDate, setCurrentDate] = useState("");
@@ -13,7 +10,6 @@ function BankInfo({ onClose }) {
   const [branchName, setBranchName] = useState("");
   const [ifsc, setIfsc] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
-  const [accountNumber, setAccountNumber] = useState("");
   const [inputDisabled, setInputDisabled] = useState(false);
   const [validIfsc, setValidIfsc] = useState(true);
   const [error, setError] = useState("");
@@ -140,6 +136,22 @@ function BankInfo({ onClose }) {
       ifsc: filteredValue,
     }));
 
+    let specificError = "";
+    if (filteredValue.length !== 11) {
+      specificError = "IFSC code must be 11 characters";
+    } else if (!/^[A-Z]{4}/.test(filteredValue)) {
+      specificError = "First four characters must be letters";
+    } else if (filteredValue[4] !== "0") {
+      specificError = "Fifth character must be zero";
+    } else if (!/[0-9]{6}$/.test(filteredValue)) {
+      specificError = "Last six characters must be digits";
+    }
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      ifsc: specificError || "",
+    }));
+
     return ifscRegex.test(filteredValue);
   };
 
@@ -177,7 +189,7 @@ function BankInfo({ onClose }) {
         className="h-4 w-4 mt-0 cursor-pointer"
         onClick={onClose}
       /> */}
-      <CloseIcon   onClick={onClose}/>
+      <CloseIcon onClick={onClose} />
       <div className="flex justify-between w-full sm:w-[68%] ">
         <label htmlFor="field11" className="w-[29%]  ">
           Bank Name:
@@ -214,7 +226,6 @@ function BankInfo({ onClose }) {
         />
       </div>
 
-
       <div className="flex justify-between w-full sm:w-[50%] relative">
         <label htmlFor="field33" className="w-1/3">
           Branch Name:
@@ -241,22 +252,21 @@ function BankInfo({ onClose }) {
           onChange={handleIfscInputChange}
           className="border border-black p-2 w-[70%] rounded-md "
         />
-        {error && <span style={{ color: "red" }}>{error}</span>}
+        {errors.ifsc && <span style={{ color: "red" }}>{errors.ifsc}</span>}
         <div className="">
-        <button
-          onClick={handleSave}
-          disabled={!isFormValid()}
-          className={`border border-blue-400  rounded-2xl w-28 h-10 ml-10  ${
-            isFormValid()
-              ? "bg-gray-300 text-blue-600"
-              : "bg-gray-200 text-gray-400 cursor-not-allowed"
-          }`}
-        >
-          Instantly Verify
-        </button>
+          <button
+            onClick={handleSave}
+            disabled={!isFormValid()}
+            className={`border border-blue-400  rounded-2xl w-28 h-10 ml-10  ${
+              isFormValid()
+                ? "bg-gray-300 text-blue-600"
+                : "bg-gray-200 text-gray-400 cursor-not-allowed"
+            }`}
+          >
+            Instantly Verify
+          </button>
+        </div>
       </div>
-      </div>
-
     </>
   );
 }

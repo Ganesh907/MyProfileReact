@@ -88,32 +88,32 @@ const EditableForm = () => {
                 <img
                   src={pencil}
                   alt="Edit"
-                  className="absolute cursor-pointer h-4 w-4 ml-40  "
+                  className="absolute cursor-pointer h-5 w-5 ml-[88%]  "
                   onClick={() => goToProfileEdit("field11")}
                 />
                 <label className="w-1/3">Bank Name:</label>
-                <span className="w-2/3">{formData.field11}</span>
+                <span className="w-2/3 pl-52">{formData.field11}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%] relative">
                 <label className="w-1/3">Bank Account Number:</label>
-                <span className="w-2/3">{formData.field22}</span>
-                <img src={doublecheck} className=" absolute h-6 w-6 ml-72" />
+                <span className="w-2/3 pl-52">{formData.field22}</span>
+                <img src={doublecheck} className=" absolute h-10 w-10 ml-[84%]" />
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
                 <label className="w-1/3">Branch Name:</label>
-                <span className="w-2/3">{formData.field33}</span>
+                <span className="w-2/3 pl-52">{formData.field33}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
                 <label className="w-1/3">IFSC:</label>
-                <span className="w-2/3">{formData.field44}</span>
+                <span className="w-2/3 pl-52">{formData.field44}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
                 <label className="w-1/3">Date Registered:</label>
-                <span className="w-2/3">{formData.field55}</span>
+                <span className="w-2/3 pl-52">{formData.field55}</span>
               </div>
             </>
           )}
@@ -154,31 +154,31 @@ const EditableForm = () => {
                 <img
                   src={pencil}
                   alt="Edit"
-                  className="absolute cursor-pointer h-4 w-4 ml-40  "
+                  className="absolute cursor-pointer h-5 w-5 ml-[83%] "
                   onClick={() => goToProfileEdit1("field51")}
                 />
                 <label className="w-1/3">PAN NO:</label>
 
-                <span className="w-2/3">{formData.field51}</span>
-                <img src={doublecheck} className=" absolute h-6 w-6 ml-[50%]" />
+                <span className="w-2/3 pl-52">{formData.field51}</span>
+                <img src={doublecheck} className=" absolute h-10 w-10 ml-[88%]" />
                 <div className="w-[1px]">
-                  <p className="underline  ">FileName</p>
+                  <p className="underline text-xs ml-[336px] ">FileName</p>
                 </div>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
                 <label className="w-1/3">Taxation Type:</label>
 
-                <span className="w-2/3">{formData.field52}</span>
+                <span className="w-2/3 pl-52">{formData.field52}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%] relative">
                 <label className="w-1/3">GST Number & Document:</label>
 
-                <span className="w-[66%]">{formData.field53}</span>
-                <img src={doublecheck} className=" absolute h-6 w-6 ml-[50%]" />
-                <div className="w-[1px]">
-                  <p className="underline  ">FileName</p>
+                <span className="w-[66%] pl-52">{formData.field53}</span>
+                <img src={doublecheck} className=" absolute h-10 w-10 ml-[88%]" />
+                <div className="w-[1px] ">
+                  <p className="underline text-xs ml-[336px] ">FileName</p>
                 </div>
               </div>
             </>
