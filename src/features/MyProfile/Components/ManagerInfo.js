@@ -30,7 +30,7 @@ function Managerinfo() {
                                 <label>Reporting Manager's Mobile No. : </label>
                         </div>
                         <div className=' flex flex-col gap-y-3'>
-                                <label>Papu Shimla</label>
+                                <label>Pappu Sharma</label>
                                 <label>SA </label>
                                 <label>PPP@gmail.com</label>
                                 <label>9876123413</label>

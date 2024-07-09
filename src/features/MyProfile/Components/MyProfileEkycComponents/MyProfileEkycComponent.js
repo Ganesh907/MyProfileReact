@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
-import {  Button, Grid,Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import { data1 } from './data1';
+import { Button, Grid, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Radio } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import SimplePopper from './Popper';
+import SimplePopper from '../../../../utils/Popper';
 import { UploadDocumnet } from './UploadDocumnet';
 import CloseIcon from '@mui/icons-material/Close';
 import SixDigitInput from './PinCode';
 import RemarkStatus from './RemarkStatus';
 import CustomizedDialogs from './RemarkStatus';
+import { EkycData } from '../../../../data/MyProfilePageData';
+import { blue } from '@mui/material/colors';
 
-const MyProfile = () => {
+const MyProfileEkyc = () => {
     const [edit, setEdit] = useState(false);
     const [questionAnswerList, setQuestionAnswerList] = useState([]);
     const [errorMessage, setErrorMessage] = useState({});
+    const[isUser,setIsUser]=useState(true);
+
+    
 
     const Edit = () => {
         setEdit(!edit);
@@ -22,13 +26,13 @@ const MyProfile = () => {
         setQuestionAnswerList((prevList) => {
             const existingIndex = prevList.findIndex(item => item.QuestionId === questionId && item.EnquiryId === enquiryId);
 
-            if (data1[questionId].is_mandatory == 1 && value.length < 1) {
+            // if (EkycData[questionId].is_mandatory == 1 || value.length < 1) {
 
-                setErrorMessage(
-                    { ...errorMessage, [questionId]: "This field is mandatory" }
-                )
-            }
-            console.log(errorMessage)
+            //     setErrorMessage(
+            //         { ...errorMessage, [questionId]: "This field is mandatory" }
+            //     )
+            // }
+            // console.log(errorMessage)
             const newItem = {
                 QuestionId: questionId,
                 EnquiryId: enquiryId,
@@ -147,12 +151,21 @@ const MyProfile = () => {
                         <div id={`question_${item.question_id}`} className='flex'>
                             {radioOptions.map((optionValue, index) => (
                                 <label key={index} className='me-10'>
-                                    <input
+                                    {/* <input
                                         type="radio"
                                         name={`question_${item.question_id}`}
                                         value={optionValue.trim()}
-                                        required={item.is_mandatory}
+                                        // required={item.is_mandatory}
                                         onChange={handleChange}
+                                    /> */}
+                                    <Radio
+                                        size="small"
+                                        sx={{
+                                            color: blue[800],
+                                            "&.Mui-checked": {
+                                                color: blue[600],
+                                            },
+                                        }}
                                     />
                                     {optionValue.trim()}
                                 </label>
@@ -187,7 +200,7 @@ const MyProfile = () => {
         <>
             <div className='border p-10 ps-16 border-black'>
                 {edit ? <CloseIcon onClick={Edit} color="error" className='cursor-pointer' /> : <EditIcon onClick={Edit} color="primary" className='cursor-pointer' />}
-                {data1.map((item) => (
+                {EkycData.map((item) => (
                     <Grid container key={item.question_id} sx={{ my: 4 }}>
                         <Grid item xs={3}>
                             <Typography sx={{ fontWeight: 'bold' }}>
@@ -198,19 +211,19 @@ const MyProfile = () => {
                             {edit && item.isApproved === 0 && <SimplePopper qid={item.question_id} remark={item.ccRemark} />}
                             {renderControl(item)}
                         </Grid>
-                        {!edit && item.isApproved==0 &&
-                        
-                            <Grid className='ms-5'>
+                        {!edit && item.isApproved == 0 && !isUser &&
+
+                            <Grid className='ms-10'>
                                 <CustomizedDialogs id={item.question_id} />
                             </Grid>
                         }
                     </Grid>
                 ))}
-                <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+                {/* <Button variant="contained" onClick={handleSubmit}>Submit</Button> */}
             </div>
 
             {/* Table for questionAnswerList */}
-            {edit &&
+            {/* {edit &&
                 <div className=' bottom-20 bg-transparent opacity-[0.8]  h-1/2 w-1/2 right-0 overflow-auto '>
 
 
@@ -227,17 +240,17 @@ const MyProfile = () => {
                                 {questionAnswerList.map((qa) => (
                                     <TableRow key={qa.QuestionId}>
                                         <TableCell>{qa.QuestionId}</TableCell>
-                                        <TableCell>{data1.find(item => item.question_id === qa.QuestionId)?.question}</TableCell>
+                                        <TableCell>{EkycData.find(item => item.question_id === qa.QuestionId)?.question}</TableCell>
                                         <TableCell>{qa.Answer}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
-                </div>}
+                </div>} */}
 
         </>
     );
 };
 
-export default MyProfile;
+export default MyProfileEkyc;

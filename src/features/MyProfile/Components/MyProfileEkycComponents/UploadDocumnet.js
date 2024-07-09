@@ -1,5 +1,5 @@
 import React from 'react'
-import SimplePopper from './Popper'
+import SimplePopper from '../../../../utils/Popper'
 import FileUploadRoundedIcon from '@mui/icons-material/FileUploadRounded';
 
 export const UploadDocumnet = ({qid,ccRemark}) => {

@@ -8,7 +8,7 @@ import Alertmsg from '../MyProfleInfoComponents/WarningMsgComponent';
 import AlertDialog from './PopUp';
 
 const PersonalInfoComponent = () => {
-  const percentagevalue=50;
+  const percentagevalue=30;
   // const percentagevalue2=50;
   // const percentagevalue3=100;
 
@@ -32,7 +32,7 @@ const PersonalInfoComponent = () => {
    }
    
   return (
-    <div className='w-full h-auto flex flex-col justify-center items-center p'>
+    <div className='w-full h-auto flex flex-col justify-center items-center '>
       <Alertmsg/>
     {openpopup?(<AlertDialog Setopenpopup={Setopenpopup} title={title} />):''}
       <div className=' w-40 '>

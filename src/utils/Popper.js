@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
-import Warning from '../../../../Images/warningGif.gif';
-import { Warnings } from './Warnings'
-
+import Warning from '../../src/Images/warningGif.gif';
+import { Warnings } from '../data/MyProfilePageData';
 export default function SimplePopper({ qid,remark }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const warningMessage = Warnings[qid];
