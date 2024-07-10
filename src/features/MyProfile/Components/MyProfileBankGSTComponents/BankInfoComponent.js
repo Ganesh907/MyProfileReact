@@ -468,10 +468,10 @@ function BankInfo({ onClose }) {
           onChange={handleChange}
           options={bankOptions}
           placeholder="Select bank"
-          className="size-10 w-[64%] mr-[57px] ml-4 border border-black rounded-md"
+          className="size-10 w-[59%] mr-[84px] border border-black rounded-md"
         />
 
-        <div className="flex  w-40 mr-10">
+        <div className="  w-40 ">
           <span className=" p-1 border  rounded-2xl border-gray-500 bg-sky-200">
             Date: {currentDate}
           </span>
