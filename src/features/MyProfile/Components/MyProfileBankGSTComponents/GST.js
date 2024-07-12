@@ -45,52 +45,6 @@ function GST({ onClose }) {
   };
   const validatePanNo = (value) => {
     debugger;
-    //   const panRegex = /^[A-Z]{3}[P]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}$/;
-    //   const firstreg = /^[A-Z]{0,3}$/;
-    //   const fourthCharacter = /^.{3}P.*/; ///[^P]/; ///^[A-Z]{4}P?$/;
-    //   const fifthCharacter = /^[A-Z]{5}$/;
-    //   const sixthToNinthCharacters = /^[0-9A-Z]{6,9}$/;
-    //   const tenthCharacter = /^.{9}[a-zA-Z].*$/;
-    //   let upperCaseValue = value.toUpperCase(); // Convert value to uppercase
-
-    //   // const isValidPan = panRegex.test(upperCaseValue);
-
-    //   const firstPart = upperCaseValue.slice(0, 3);
-    //   if (!firstreg.test(firstPart)) {
-    //     setPanError("Invalid PAN Number First three charter must be alphabet.");
-    //   } else if (
-    //     upperCaseValue.length > 3 &&
-    //     !fourthCharacter.test(upperCaseValue)
-    //   ) {
-    //     setPanError("Invalid PAN Number Fourth character should be P.");
-    //   } else if (
-    //     upperCaseValue.length > 4 &&
-    //     upperCaseValue.length <= 5 &&
-    //     !fifthCharacter.test(upperCaseValue)
-    //   ) {
-    //     setPanError("Invalid PAN Number Fifth character should be a character.");
-    //   } else if (
-    //     upperCaseValue.length > 5 &&
-    //     upperCaseValue.length <= 9 &&
-    //     !sixthToNinthCharacters.test(upperCaseValue)
-    //   ) {
-    //     setPanError(
-    //       "Invalid PAN Number characters from position 6 to 9 must be digits or alphabetic characters."
-    //     );
-    //   } else if (
-    //     upperCaseValue.length > 9 &&
-    //     upperCaseValue.length <= 10 &&
-    //     !tenthCharacter.test(upperCaseValue)
-    //   ) {
-    //     setPanError("Invalid PAN Number Tenth Character should be a charcter.");
-    //   } else {
-    //     // No errors
-    //     setPanError(""); // Assuming this means no error
-    //   }
-
-    //   setPanNo(upperCaseValue);
-    //   return;
-    // };
     const panRegex = /^[A-Z]{3}[P]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}$/;
     const firstreg = /^[A-Z]{0,3}$/;
     const fourthCharacter = /^.{3}P.*/;
@@ -150,12 +104,11 @@ function GST({ onClose }) {
       /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[A-Z0-9]{1}[Z]{1}[A-Z0-9]{1}$/;
 
     let upperCaseValue = value.toUpperCase();
-    // const firstPart = upperCaseValue.slice(0, 2).replace(/[^0-9]/g, "");
-    // const panPart = upperCaseValue.slice(2, 12).replace(/[^A-Z0-9]/g, "");
+
 
     const firstreg = /^[0-9]{0,2}$/;
-    // const panRegex = /^.{2}[A-Z]{5}/;//[0-9]{4}[A-Z]{1}$/;
-    const panRegex = /^.{2}[A-Z]{1,5}$/; // Validates if the third to seventh characters are alphabets
+    
+    const panRegex = /^.{2}[A-Z]{1,5}$/; 
 
     const thirdRegex = /^.{7}[0-9]{1,4}$/;
     const fourRegex = /^.{11}[A-Z]{0,1}$/;
@@ -222,20 +175,13 @@ function GST({ onClose }) {
       <div className="flex justify-between w-full sm:w-[64%] gap-4 ">
         <label className="w-1/3 ">PAN NO:</label>
         <img src={warning} className="h-6 w-6 mr-3" />
-        {/* <input
-          type="text"
-          maxLength="10"
-          className="w-[60%]  mr-2 border border-black p-2 rounded-md size-10"
-          value={panNo}
-          onChange={(e) => handleInputChange(e, "panNo")}
-        /> */}
-        {/* <TextField id="standard-basic" variant="standard" className="w-[60%] "   onChange={(e) => handleInputChange(e, "panNo")}   maxLength="10"      type="text"  value={panNo}/> */}
+
         <TextField
           id="standard-basic"
           variant="standard"
           className="w-[60%]"
           onChange={(e) => handleInputChange(e, "panNo")}
-          inputProps={{ maxLength: 10 }} // Use inputProps to set maxLength
+          inputProps={{ maxLength: 10 }} 
           type="text"
           value={panNo}
         />
