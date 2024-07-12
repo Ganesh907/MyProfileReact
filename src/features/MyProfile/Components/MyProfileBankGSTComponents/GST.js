@@ -220,7 +220,7 @@ function GST({ onClose }) {
     <>
       <CloseIcon onClick={onClose} />
       <div className="flex justify-between w-full sm:w-[64%] gap-4 ">
-        <label className="w-1/3">PAN NO:</label>
+        <label className="w-1/3 ">PAN NO:</label>
         <img src={warning} className="h-6 w-6 mr-3" />
         {/* <input
           type="text"
