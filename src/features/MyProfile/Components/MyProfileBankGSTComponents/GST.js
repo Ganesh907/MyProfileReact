@@ -9,6 +9,7 @@ const taxationOptions = [
   { value: "GST", label: "GST" },
   { value: "VAT", label: "VAT" },
   { value: "CST", label: "CST" },
+  { value: "Indivisual", label: "indivisual" },
 ];
 
 function GST({ onClose }) {
@@ -95,6 +96,9 @@ function GST({ onClose }) {
     const upperCaseValue = value.toUpperCase();
     const filteredValue = upperCaseValue.replace(/[^A-Z0-9]/g, "");
     setGstNumber(filteredValue);
+    if (gstNumber == "NA") {
+      setInputDisabled(true);
+    }
     validateGstNumber(filteredValue);
   };
 
@@ -105,10 +109,9 @@ function GST({ onClose }) {
 
     let upperCaseValue = value.toUpperCase();
 
-
     const firstreg = /^[0-9]{0,2}$/;
-    
-    const panRegex = /^.{2}[A-Z]{1,5}$/; 
+
+    const panRegex = /^.{2}[A-Z]{1,5}$/;
 
     const thirdRegex = /^.{7}[0-9]{1,4}$/;
     const fourRegex = /^.{11}[A-Z]{0,1}$/;
@@ -163,8 +166,19 @@ function GST({ onClose }) {
     return;
   };
 
+  // const handleTaxationTypeChange = (selectedOption) => {
+  //   setTaxationType(selectedOption);
+  // };
+
   const handleTaxationTypeChange = (selectedOption) => {
     setTaxationType(selectedOption);
+    if (selectedOption.value === "Indivisual") {
+      setGstNumber("NA");
+      setInputDisabled(true);
+    } else {
+      setGstNumber("");
+      setInputDisabled(false);
+    }
   };
 
   const handleSave = () => {};
@@ -181,7 +195,7 @@ function GST({ onClose }) {
           variant="standard"
           className="w-[60%]"
           onChange={(e) => handleInputChange(e, "panNo")}
-          inputProps={{ maxLength: 10 }} 
+          inputProps={{ maxLength: 10 }}
           type="text"
           value={panNo}
         />
@@ -221,6 +235,7 @@ function GST({ onClose }) {
           type="text"
           className="w-[62%] mr-2  border border-black p-2 rounded-md size-10"
           value={gstNumber}
+          disabled={inputDisabled}
           maxLength="15"
           onChange={(e) => handleGstChange(e, "gstNumber")}
         />
