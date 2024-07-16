@@ -52,68 +52,39 @@ const EditableForm = () => {
 
   return (
     <div>
-      {/* <div className="w-full h-auto flex justify-center items-center p-4">
-        <div className="w-[90%] h-full flex flex-col border border-black gap-6 p-4">
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Reporting Manager:</label>
-
-            <span className="w-2/3">{formData.field1}</span>
-          </div>
-
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Manager's Role:</label>
-
-            <span className="w-2/3">{formData.field2}</span>
-          </div>
-
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Manager's Email:</label>
-
-            <span className="w-2/3">{formData.field3}</span>
-          </div>
-
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Manager's Mobile No:</label>
-
-            <span className="w-2/3">{formData.field4}</span>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="w-full h-auto flex justify-center items-center bg-red-300 "> */}
-        <div className="w-full  flex flex-col border border-black gap-6 p-4">
+       <div className="w-full  flex flex-col border border-black gap-6 p-4">
           {!isEditOpen && (
             <>
               <div className="flex justify-between w-full sm:w-[50%] relative">
                 <img
                   src={pencil}
                   alt="Edit"
-                  className="absolute cursor-pointer h-5 w-5 ml-[88%]  "
+                  className="absolute cursor-pointer h-5 w-5 ml-[70%]  "
                   onClick={() => goToProfileEdit("field11")}
                 />
-                <label className="w-1/3">Bank Name:</label>
-                <span className="w-2/3 pl-52">{formData.field11}</span>
+                <label className="w-1/3 font-bold ml-16">Bank Name:</label>
+                <span className="w-2/3 pl-[55px]">{formData.field11}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%] relative">
-                <label className="w-1/3">Bank Account Number:</label>
-                <span className="w-2/3 pl-52">{formData.field22}</span>
-                <img src={doublecheck} className=" absolute h-10 w-10 ml-[84%]" />
+                <label className="w-1/2 font-bold ml-16">Bank Account Number:</label>
+                <span className="w-2/3 pl-38">{formData.field22}</span>
+                <img src={doublecheck} className=" absolute h-10 w-10 ml-[63%]" />
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
-                <label className="w-1/3">Branch Name:</label>
-                <span className="w-2/3 pl-52">{formData.field33}</span>
+                <label className="w-1/3 font-bold ml-16">Branch Name:</label>
+                <span className="w-2/3 pl-[58px]">{formData.field33}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
-                <label className="w-1/3">IFSC:</label>
-                <span className="w-2/3 pl-52">{formData.field44}</span>
+                <label className="w-1/3 font-bold ml-16">IFSC:</label>
+                <span className="w-2/3 pl-[58px]">{formData.field44}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
-                <label className="w-1/3">Date Registered:</label>
-                <span className="w-2/3 pl-52">{formData.field55}</span>
+                <label className="w-1/3 font-bold ml-16">Date Registered:</label>
+                <span className="w-2/3 pl-[58px]">{formData.field55}</span>
               </div>
             </>
           )}
@@ -122,61 +93,41 @@ const EditableForm = () => {
             <BankInfo onClose={closeProfileEdit} />
           )}
         </div>
-      {/* </div> */}
+    
 
-      {/* <div className="w-full h-auto flex justify-center items-center p-4">
-        <div className="w-[90%] h-full flex flex-col border border-black gap-6 p-4">
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Bank Name:</label>
+      
 
-            <span className="w-2/3">{formData.field111}</span>
-          </div>
-
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Bank Account Number:</label>
-
-            <span className="w-2/3">{formData.field222}</span>
-          </div>
-
-          <div className="flex justify-between w-full sm:w-[50%]">
-            <label className="w-1/3">Branch Name:</label>
-
-            <span className="w-2/3">{formData.field333}</span>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="w-full h-auto flex justify-center items-center p-4"> */}
+   
         <div className="w-full h-full flex flex-col  mt-5 border border-black gap-6 p-4">
           {!isEditOpen1 && (
             <>
-              <div className="flex justify-between w-full sm:w-[50%] relative">
+              <div className="flex justify-between  w-full sm:w-[50%] relative">
                 <img
                   src={pencil}
                   alt="Edit"
-                  className="absolute cursor-pointer h-5 w-5 ml-[83%] "
+                  className="absolute cursor-pointer h-5 w-5 ml-[64%] "
                   onClick={() => goToProfileEdit1("field51")}
                 />
-                <label className="w-1/3">PAN NO:</label>
+                <label className="w-1/3 font-bold ml-16">PAN NO:</label>
 
-                <span className="w-2/3 pl-52">{formData.field51}</span>
-                <img src={doublecheck} className=" absolute h-10 w-10 ml-[88%]" />
+                <span className="w-2/3 pl-[58px]">{formData.field51}</span>
+                <img src={doublecheck} className=" absolute h-10 w-10 ml-[68%]" />
                 <div className="w-[1px]">
                   <p className="underline text-xs ml-[336px] ">FileName</p>
                 </div>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%]">
-                <label className="w-1/3">Taxation Type:</label>
+                <label className="w-1/3 font-bold ml-16">Taxation Type:</label>
 
-                <span className="w-2/3 pl-52">{formData.field52}</span>
+                <span className="w-2/3 pl-[60px]">{formData.field52}</span>
               </div>
 
               <div className="flex justify-between w-full sm:w-[50%] relative">
-                <label className="w-1/3">GST Number & Document:</label>
+                <label className="w-1/2 font-bold ml-16">GST Number & Document:</label>
 
-                <span className="w-[66%] pl-52">{formData.field53}</span>
-                <img src={doublecheck} className=" absolute h-10 w-10 ml-[88%]" />
+                <span className="w-[66%] pl-[5px]">{formData.field53}</span>
+                <img src={doublecheck} className=" absolute h-10 w-10 ml-[68%]" />
                 <div className="w-[1px] ">
                   <p className="underline text-xs ml-[336px] ">FileName</p>
                 </div>
@@ -190,7 +141,7 @@ const EditableForm = () => {
           
         </div>
       </div>
-//      </div>
+
   );
 };
 

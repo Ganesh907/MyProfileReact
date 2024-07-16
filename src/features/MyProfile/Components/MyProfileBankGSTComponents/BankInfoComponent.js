@@ -269,7 +269,6 @@
 
 // export default BankInfo;
 
-
 import { useState, useEffect } from "react";
 import warning from "../../../../assets/images/warningGif.gif";
 import React from "react";
@@ -285,7 +284,8 @@ function BankInfo({ onClose }) {
   const [inputDisabled, setInputDisabled] = useState(false);
   const [validIfsc, setValidIfsc] = useState(true);
   const [error, setError] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState("");
+  const [bankAccountError, setBankAccountError] = useState();
 
   const [bankDetails, setBankDetails] = useState({
     bankName: "",
@@ -365,15 +365,29 @@ function BankInfo({ onClose }) {
     },
   ];
 
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    const newValue = value.replace(/\D/g, "").slice(0, 18);
+  const handleInputChange = (e) => {
+    debugger;
+    const { value } = e.target;
+    const upperCaseValue = value.toUpperCase();
+    const filteredValue = upperCaseValue.replace(/[^A-Z0-9]/g,""); // Remove all non-numeric characters
+    setBankAccountNumber(filteredValue);
+    validateBankAccountNumber(filteredValue);
+  };
 
-    setBankAccountNumber(newValue);
-    setBankDetails((prevDetails) => ({
-      ...prevDetails,
-      bankAccountNumber: newValue,
-    }));
+  const validateBankAccountNumber = (value) => {
+    debugger;
+    const bankAccountRegex = /^[0-9]{1,18}$/;
+
+    let upperCaseValue = value.toUpperCase();
+    if (!bankAccountRegex.test(upperCaseValue)) {
+      setBankAccountError(
+        "Invalid bank account number. It should be exactly 18 digits."
+      );
+    } else {
+      setBankAccountError("");
+    }
+    setBankAccountNumber(upperCaseValue);
+    return;
   };
 
   const handleBranchNameInputChange = (event) => {
@@ -456,7 +470,6 @@ function BankInfo({ onClose }) {
 
   return (
     <>
-
       <CloseIcon onClick={onClose} />
       <div className="flex justify-between w-full sm:w-[68%] ">
         <label htmlFor="field11" className="w-[29%]  ">
@@ -468,10 +481,10 @@ function BankInfo({ onClose }) {
           onChange={handleChange}
           options={bankOptions}
           placeholder="Select bank"
-          className="size-10 w-[64%] mr-[57px] ml-4 border border-black rounded-md"
+          className="size-10 w-[59%] mr-[84px] border border-black rounded-md"
         />
 
-        <div className="flex  w-40 mr-10">
+        <div className="  w-40 ">
           <span className=" p-1 border  rounded-2xl border-gray-500 bg-sky-200">
             Date: {currentDate}
           </span>
@@ -491,7 +504,9 @@ function BankInfo({ onClose }) {
           onChange={handleInputChange}
           className="border border-black p-2 w-[67%] rounded-md "
           disabled={inputDisabled}
+          maxLength="18"
         />
+        {bankAccountError && <p className="text-red-500">{bankAccountError}</p>}
       </div>
 
       <div className="flex justify-between w-full sm:w-[50%] ">
