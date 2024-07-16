@@ -14,7 +14,7 @@ const MyProfileEkyc = () => {
     const [edit, setEdit] = useState(false);
     const [questionAnswerList, setQuestionAnswerList] = useState([]);
     const [errorMessage, setErrorMessage] = useState({});
-    const[isUser,setIsUser]=useState(true);
+    const[isUser,setIsUser]=useState(false);
 
     
 
