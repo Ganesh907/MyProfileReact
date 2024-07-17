@@ -185,6 +185,7 @@ function GST({ onClose }) {
 
   return (
     <>
+    
       <CloseIcon onClick={onClose} />
       <div className="flex justify-between w-full sm:w-[64%] gap-4 ">
         <label className="w-1/3 ">PAN NO:</label>
