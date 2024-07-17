@@ -198,7 +198,10 @@ const MyProfileEkyc = () => {
 
     return (
         <>
-            <div className='border p-10 ps-16 border-black'>
+            <fieldset className='border p-10 ps-16 border-black'>
+            <legend className="px-3">
+         EKYC Info 
+       </legend>
                 {edit ? <CloseIcon onClick={Edit} color="error" className='cursor-pointer' /> : <EditIcon onClick={Edit} color="primary" className='cursor-pointer' />}
                 {EkycData.map((item) => (
                     <Grid container key={item.question_id} sx={{ my: 4 }}>
@@ -220,7 +223,7 @@ const MyProfileEkyc = () => {
                     </Grid>
                 ))}
                 {/* <Button variant="contained" onClick={handleSubmit}>Submit</Button> */}
-            </div>
+            </fieldset>
 
             {/* Table for questionAnswerList */}
             {/* {edit &&

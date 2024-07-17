@@ -21,8 +21,10 @@ function Managerinfo() {
         console.log('Array after adding new element:', array);
 
         return (
-                <div className=' flex pl-16 p-10 border gap-32 border-black'>
-
+                <fieldset className=' flex pl-16 p-10 border gap-32 border-black'>
+   <legend className="px-3">
+         Manager Info 
+       </legend>
                         <div className=' flex flex-col gap-y-3 font-bold'>
                                 <label>Reporting Manager : </label>
                                 <label>Reporting Manager's Role : </label>
@@ -35,7 +37,7 @@ function Managerinfo() {
                                 <label>PPP@gmail.com</label>
                                 <label>9876123413</label>
                         </div>
-                </div>
+                </fieldset>
 
         )
 }

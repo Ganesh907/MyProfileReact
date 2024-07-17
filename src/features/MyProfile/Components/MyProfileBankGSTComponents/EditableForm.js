@@ -52,7 +52,11 @@ const EditableForm = () => {
 
   return (
     <div>
-       <div className="w-full  flex flex-col border border-black gap-6 p-4">
+       <fieldset className="w-full  flex flex-col border border-black gap-6 p-4">
+      
+      <legend className="px-3">
+         Bank Info 
+       </legend>
           {!isEditOpen && (
             <>
               <div className="flex justify-between w-full sm:w-[50%] relative">
@@ -92,13 +96,16 @@ const EditableForm = () => {
           {isEditOpen && editField === "field11" && (
             <BankInfo onClose={closeProfileEdit} />
           )}
-        </div>
+        </fieldset>
     
 
       
 
    
-        <div className="w-full h-full flex flex-col  mt-5 border border-black gap-6 p-4">
+        <fieldset className="w-full h-full flex flex-col  mt-5 border border-black gap-6 p-4">
+        <legend className="px-3">
+         Tax Info 
+       </legend>
           {!isEditOpen1 && (
             <>
               <div className="flex justify-between  w-full sm:w-[50%] relative">
@@ -139,7 +146,7 @@ const EditableForm = () => {
             <GST onClose={closeProfileEdit1} />
           )}
           
-        </div>
+        </fieldset>
       </div>
 
   );

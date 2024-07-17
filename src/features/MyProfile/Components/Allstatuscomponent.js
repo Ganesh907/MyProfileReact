@@ -173,7 +173,7 @@ const Allstatuscomponent= () => {
             field: key,
             headerName: setPendingHeaderName(key),
             flex: 1,
-            minWidth: 150,
+            minWidth: 10, 
             // headerClassName: "grid-header-style",
             headerClassName: "bg-gray-300",
           };
@@ -184,7 +184,7 @@ const Allstatuscomponent= () => {
             headerName: key,
             headerClassName: "bg-grey",
             flex: 1,
-            minWidth: 150,
+            minWidth: 10,
           };
         });
 
@@ -230,14 +230,20 @@ const Allstatuscomponent= () => {
   return (
     <div>
         {
-        openPopup ? 
+        openPopup ? <>
+        
+        <Tabbar/>
         <Myprofileinfocomponent/>
+        </>
         
         :        
 
 
 <>
 <Tabbar/>
+<div className="px-14"> 
+
+
       {/* <Box sx={{}}>
         <Tabs
           value={value}
@@ -305,6 +311,7 @@ const Allstatuscomponent= () => {
         pageSizeOptions={[5, 10, 25]}
       />
 
+</div>
       </>
      
 }

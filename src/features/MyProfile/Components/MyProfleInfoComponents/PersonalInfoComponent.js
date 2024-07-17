@@ -47,7 +47,12 @@ const PersonalInfoComponent = () => {
       <DynamicDemo percentagevalue={percentagevalue}/> 
      
       </div>
-       <div className='md:w-[100%] w-full mt-2 h-full flex flex-col border border-black gap-6 pl-20 pb-10 pt-4 '>
+      
+       
+       <fieldset className='md:w-[100%] w-full mt-2 h-full flex flex-col border border-black gap-6 pl-20 pb-10 pt-4 '>
+       <legend className='px-3'> 
+          Personal Info
+        </legend>
         <div className='grid grid-cols-2 w-[55%] gap-8 '>
         <label className=' font-bold'>Name:</label>
         {/* <input type="text" className='border py-1'/> */}
@@ -152,8 +157,10 @@ const PersonalInfoComponent = () => {
             </div>
             </div>
         </div>
-        </div> 
+        </fieldset> 
+        
     </div>
+    
   )
 }
 

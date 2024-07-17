@@ -5,6 +5,9 @@ import MyProfileEkyc from './MyProfileEkycComponents/MyProfileEkycComponent'
 import Managerinfo from './Managerinfocomponent'
 import { Button } from '@mui/material'
 import KycLeadsDetailsListPage from '../../MyProfile/Components/Allstatuscomponent'
+import ProfileProgeessBar from './MyProfleInfoComponents/ProfileProgress'
+import DynamicDemo from './MyProfleInfoComponents/ProfileProgeessBar'
+// /MyProfleInfoComponents/ProfileProgeessBar'
 
 export const MyProfileComponent = () => {
   // const [questionAnswerList, setQuestionAnswerList] = useState([]);
@@ -22,8 +25,12 @@ export const MyProfileComponent = () => {
   !internal  ?
 
     <div className='m-5'>
+     
       <PersonalInfoComponent />
+    
       <br />
+
+     
       <EditableForm />
       <br />
       <MyProfileEkyc/>
@@ -39,8 +46,23 @@ export const MyProfileComponent = () => {
 
     </div>
     :
-    <KycLeadsDetailsListPage/>
+    <>
 
+
+<div className='w-full flex flex-row gap-5 justify-center items-center p-2'>
+       <ProfileProgeessBar percentagevalue={30}/>
+   
+      
+   </div>
+
+
+   <div className='w-full flex flex-row gap-5 justify-center items-center p-2'>
+   <DynamicDemo percentagevalue={30}/> 
+  
+   </div>
+    <br />
+    <KycLeadsDetailsListPage/>
+</>
     }
 
     </>
