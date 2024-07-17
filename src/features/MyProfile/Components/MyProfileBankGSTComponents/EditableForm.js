@@ -51,7 +51,7 @@ const EditableForm = () => {
   return (
     <div>
       <fieldset className="w-full  flex flex-col border border-black gap-6 p-4">
-        <legend className="font-bold ml-10">BankInfo</legend>
+        <legend className="text-bold ml-10">BankInfo</legend>
         {!isEditOpen && (
           <>
             <div className="flex justify-between w-full sm:w-[50%] relative">
@@ -96,7 +96,7 @@ const EditableForm = () => {
       </fieldset>
 
       <fieldset className="w-full h-full flex flex-col  mt-5 border border-black gap-6 p-4">
-        <legend className="font-bold ml-10 ">TexInfo</legend>
+        <legend className="text-bold ml-10 ">TexInfo</legend>
         {!isEditOpen1 && (
           <>
             <div className="flex justify-between  w-full sm:w-[50%] relative">
